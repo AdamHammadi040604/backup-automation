@@ -1,0 +1,10 @@
+# Terraform - skapas av terraform init/apply och ska inte ligga på GitHub
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Skapas när projektet körs
+config.json
+data/
+backups/
+logs/

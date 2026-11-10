@@ -101,9 +101,21 @@ Om `config.json` saknas stoppar felhanteringen skriptet med ett tydligt meddelan
 
 ## Reflektion
 
-<!-- SKRIV DEN HÄR DELEN SJÄLV med egna ord. Ta bort frågorna när du är klar. -->
+Själva kodningen gick bra. Jag har programmerat i andra språk tidigare, så
+funktioner, loopar och villkor i PowerShell kändes bekanta även om syntaxen
+var ny.
 
-- Vad gick bra?
-- Vad var svårt, och hur löste du det?
-- Vad lärde du dig om att låta Terraform och PowerShell samverka?
-- Vad skulle du lägga till om du hade mer tid?
+Det svåraste var att hantera sökvägar. På en dator med många filer vill man
+inte skriva in långa sökvägar för hand i koden. Jag löste det genom att lägga
+mapparna som variabler i Terraform, så att de hamnar i config.json och skriptet
+bygger sökvägen utifrån mappen där det självt ligger. Jag fick också felsöka
+att Terraform inte hittades i terminalen, vilket berodde på att PATH inte hade
+uppdaterats efter installationen.
+
+Jag lärde mig att Terraform och PowerShell inte pratar direkt med varandra,
+utan samverkar genom en gemensam fil. Terraform skriver config.json och
+PowerShell läser den. Därför spelar ordningen roll: körs skriptet innan
+terraform apply saknas filen och skriptet stannar med ett felmeddelande.
+
+Med mer tid skulle jag bygga ett gränssnitt där man kan välja vilka mappar som
+ska säkerhetskopieras, se status och synka backupen till en annan plats.
